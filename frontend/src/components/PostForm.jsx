@@ -23,7 +23,7 @@ export default function PostForm({ onCreated }) {
       onCreated(post);
       setContent('');
       setImg({ file: null, url: '' });
-      notify('Status diterbitkan.', 'success');
+      notify('Status diunggah.', 'success');
     } catch (err) {
       notify(err.message, 'error');
     } finally {
@@ -48,7 +48,7 @@ export default function PostForm({ onCreated }) {
         <ImagePicker value={img} onChange={setImg} onError={(m) => notify(m, 'error')} label="Gambar" />
       </div>
       <div className="flex justify-end">
-        <button className="btn-primary" disabled={sending}>{sending ? 'Menerbitkan…' : 'Terbitkan'}</button>
+        <button className="btn-primary" disabled={sending}>{sending ? 'Menerbitkan…' : 'Unggah'}</button>
       </div>
     </form>
   );

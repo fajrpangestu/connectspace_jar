@@ -20,7 +20,7 @@ export default function Feed() {
       {posts?.length === 0 && (
         <div className="card p-10 text-center">
           <p className="font-bold">Beranda masih kosong</p>
-          <p className="mt-1 text-sm text-ink-soft">Terbitkan status pertama untuk membuka percakapan.</p>
+          <p className="mt-1 text-sm text-ink-soft">Unggah status pertama untuk membuka percakapan.</p>
         </div>
       )}
       {posts?.map((p) => (

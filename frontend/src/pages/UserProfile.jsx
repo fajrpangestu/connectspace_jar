@@ -99,7 +99,7 @@ export default function UserProfile() {
         <div className="card p-10 text-center">
           <p className="font-bold">Belum ada postingan</p>
           <p className="mt-1 text-sm text-ink-soft">
-            {isMe ? 'Terbitkan status pertama Anda dari Beranda.' : 'Pengguna ini belum menerbitkan status.'}
+            {isMe ? 'Unggah status pertama Anda dari Beranda.' : 'Pengguna ini belum menerbitkan status.'}
           </p>
         </div>
       )}
