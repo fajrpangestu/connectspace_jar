@@ -36,7 +36,7 @@ export default function Register() {
     setSending(true);
     try {
       await api.register(form);
-      navigate('/login', { replace: true }); // tidak auto-login
+      navigate('/login', { replace: true }); // tidak auto-login: lanjut ke form login
       notify('Registrasi berhasil! Silakan login dengan akun Anda.', 'success');
     } catch (err) {
       setErrors(err.errors || {});

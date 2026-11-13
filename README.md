@@ -1,4 +1,4 @@
-# connectspace_jar (React + Express + MySQL + Tailwind CSS)
+# ConnectSpace (React + Express + MySQL + Tailwind CSS)
 
 MVP media sosial internal sesuai dokumen UJK Junior Web Programmer.
 
@@ -29,7 +29,7 @@ Vite mem-proxy `/api` dan `/uploads` ke port 4000, jadi cookie sesi bersifat sam
 | Rubrik | Implementasi |
 |---|---|
 | 1. Struktur & relasi DB | `backend/schema.sql`: users, posts, likes, comments, FK ON DELETE CASCADE, `UNIQUE (user_id, post_id)` pada likes |
-| 2. Registrasi & auto-login | `routes/auth.js` (validasi, bcrypt, sesi dibuat langsung), `pages/Register.jsx` redirect ke Beranda |
+| 2. Registrasi & auto-login | `routes/auth.js` (validasi, bcrypt; TIDAK auto-login), `pages/Register.jsx` redirect ke halaman Login |
 | 3. Auth & route guard | `middleware.js` (`requireAuth`, `requireGuest`), `App.jsx` (`ProtectedRoute`, `GuestRoute`), logout menghancurkan sesi |
 | 4. Profil & foto | `routes/profile.js`, `pages/Profile.jsx`; avatar tampil di navbar, postingan, komentar; ubah password verifikasi password lama |
 | 5. CRUD status | `routes/posts.js`; urut terbaru; hapus hanya pemilik (dicek di server + tombol hanya tampil untuk pemilik) |

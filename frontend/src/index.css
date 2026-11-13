@@ -3,43 +3,27 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    @apply bg-mist font-sans text-ink antialiased;
-  }
-  :focus-visible {
-    @apply outline-2 outline-offset-2 outline-brand;
-  }
+  body { @apply bg-mist font-sans text-ink antialiased; }
+  :focus-visible { @apply outline-2 outline-offset-2 outline-brand; }
 }
 
 @layer components {
-  .card {
-    @apply rounded-2xl border border-line bg-white;
-  }
+  .card { @apply rounded-2xl border border-line bg-white; }
   .input {
     @apply w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-[15px] text-ink
            placeholder:text-ink-soft/60 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20;
   }
-  .input-error {
-    @apply border-heart focus:border-heart focus:ring-heart/20;
-  }
+  .input-error { @apply border-heart focus:border-heart focus:ring-heart/20; }
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold
            transition-colors disabled:cursor-not-allowed disabled:opacity-50;
   }
-  .btn-primary {
-    @apply btn bg-brand text-white hover:bg-brand-dark;
-  }
-  .btn-ghost {
-    @apply btn text-ink-soft hover:bg-mist hover:text-ink;
-  }
-  .btn-outline {
-    @apply btn border border-line bg-white text-ink hover:bg-mist;
-  }
+  .btn-primary { @apply btn bg-brand text-white hover:bg-brand-dark; }
+  .btn-ghost { @apply btn text-ink-soft hover:bg-mist hover:text-ink; }
+  .btn-outline { @apply btn border border-line bg-white text-ink hover:bg-mist; }
 
   /* Tombol aksi kecil */
-  .btn-sm {
-    @apply btn !gap-1.5 !rounded-lg !px-3 !py-1.5 !text-xs;
-  }
+  .btn-sm { @apply btn !gap-1.5 !rounded-lg !px-3 !py-1.5 !text-xs; }
   .btn-edit {
     @apply btn-sm border border-brand/20 bg-brand-soft text-brand hover:border-brand hover:bg-brand hover:text-white;
   }
@@ -52,8 +36,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
+  * { animation: none !important; transition: none !important; }
 }

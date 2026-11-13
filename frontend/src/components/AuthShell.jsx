@@ -11,7 +11,7 @@ export default function AuthShell({ title, subtitle, children, footer }) {
             Bagikan status, balas dengan gambar, dan lihat siapa yang sedang membicarakan apa, tanpa harus mencari di grup chat.
           </p>
         </div>
-        <p className="text-sm text-white/50">connectspace_jar, jejaring internal perusahaan</p>
+        <p className="text-sm text-white/50">ConnectSpace, jejaring internal perusahaan</p>
       </aside>
       <main className="flex items-center justify-center px-5 py-12">
         <div className="w-full max-w-md">

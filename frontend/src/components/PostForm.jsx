@@ -48,7 +48,7 @@ export default function PostForm({ onCreated }) {
         <ImagePicker value={img} onChange={setImg} onError={(m) => notify(m, 'error')} label="Gambar" />
       </div>
       <div className="flex justify-end">
-        <button className="btn-primary" disabled={sending}>{sending ? 'Menerbitkan…' : 'Unggah'}</button>
+        <button className="btn-primary" disabled={sending}>{sending ? 'Menerbitkan…' : 'Terbitkan'}</button>
       </div>
     </form>
   );

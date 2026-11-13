@@ -17,4 +17,4 @@ const conn = await mysql.createConnection({
 
 await conn.query(sql);
 await conn.end();
-console.log('Database & tabel connectspace_jar siap dipakai.');
+console.log('Database & tabel ConnectSpace siap dipakai.');

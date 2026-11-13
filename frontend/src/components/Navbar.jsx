@@ -38,7 +38,8 @@ export default function Navbar() {
               end
               aria-label="Beranda"
               className={({ isActive }) =>
-                `inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-sm font-semibold transition-colors ${isActive ? 'bg-brand-soft text-brand' : 'text-ink-soft hover:bg-mist hover:text-ink'
+                `inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-sm font-semibold transition-colors ${
+                  isActive ? 'bg-brand-soft text-brand' : 'text-ink-soft hover:bg-mist hover:text-ink'
                 }`
               }
             >
@@ -46,6 +47,7 @@ export default function Navbar() {
               <span className="hidden sm:inline">Home</span>
             </NavLink>
           </div>
+
           <nav className="flex items-center gap-1">
             <NavLink
               to={`/u/${user.id}`}
@@ -67,7 +69,7 @@ export default function Navbar() {
       {confirming && (
         <ConfirmDialog
           title="Keluar dari ConnectSpace?"
-          message="Anda akan keluar dan perlu login lagi untuk masuk."
+          message="Sesi Anda akan diakhiri dan Anda perlu login lagi untuk masuk."
           confirmText="Ya, keluar"
           danger={false}
           loading={loading}

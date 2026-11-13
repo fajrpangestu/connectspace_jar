@@ -9,7 +9,9 @@ import { notFound, errorHandler } from './middleware.js';
 import authRoutes from './routes/auth.js';
 import profileRoutes from './routes/profile.js';
 import postRoutes from './routes/posts.js';
+import commentRoutes from './routes/comments.js';
 import userRoutes from './routes/users.js';
+import { ensureSchema } from './migrate.js';
 
 const MySQLStore = MySQLStoreFactory(session);
 const app = express();
@@ -24,7 +26,7 @@ app.use(express.urlencoded({ extended: false, limit: '100kb' }));
 // Sesi disimpan di MySQL (tabel `sessions` dibuat otomatis)
 app.use(
   session({
-    name: 'connectspace_jar.sid',
+    name: 'connectspace.sid',
     secret: process.env.SESSION_SECRET || 'dev-secret-ganti-di-produksi',
     resave: false,
     saveUninitialized: false,
@@ -43,9 +45,18 @@ app.use(
 app.use('/api/auth', authRoutes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/posts', postRoutes);
+app.use('/api/posts', commentRoutes);
 app.use('/api/users', userRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
+try {
+  await ensureSchema(); // otomatis menyiapkan tabel/kolom untuk balasan & like komentar
+} catch (err) {
+  console.error('Gagal menyiapkan database. Pastikan MySQL menyala dan database sudah dibuat (npm run db:init).');
+  console.error(err.message);
+  process.exit(1);
+}
+
 const port = Number(process.env.PORT || 4000);
-app.listen(port, () => console.log(`connectspace_jar API berjalan di http://localhost:${port}`));
+app.listen(port, () => console.log(`ConnectSpace API berjalan di http://localhost:${port}`));
