@@ -60,7 +60,7 @@ export default function ConfirmDialog({
           </button>
           <button
             type="button"
-            className={`btn text-white ${danger ? 'bg-heart hover:bg-red-600' : 'bg-brand hover:bg-brand-dark'}`}
+            className={`btn text-white ${danger ? 'bg-heart hover:bg-red-600' : 'bg-red-500 hover:bg-red-600'}`}
             onClick={onConfirm}
             disabled={loading}
           >
