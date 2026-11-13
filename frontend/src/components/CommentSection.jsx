@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { api, timeAgo, toFormData } from '../api.js';
 import { useAuth } from '../context/AuthContext.jsx';
@@ -75,10 +76,12 @@ export default function CommentSection({ postId, onCountChange }) {
           const mine = c.author.id === user.id;
           return (
             <li key={c.id} className="flex gap-3">
-              <Avatar user={c.author} size={32} />
+              <Link to={`/u/${c.author.id}`} aria-label={`Profil ${c.author.name}`}>
+                <Avatar user={c.author} size={32} />
+              </Link>
               <div className="min-w-0 flex-1 rounded-2xl rounded-tl-md border border-line bg-white px-3.5 py-2.5">
                 <div className="flex flex-wrap items-baseline gap-x-2">
-                  <span className="text-sm font-bold">{c.author.name}</span>
+                  <Link to={`/u/${c.author.id}`} className="text-sm font-bold hover:text-brand">{c.author.name}</Link>
                   <time className="text-xs text-ink-soft" dateTime={c.created_at}>{timeAgo(c.created_at)}</time>
                   {mine && editingId !== c.id && (
                     <span className="ml-auto flex gap-1.5">

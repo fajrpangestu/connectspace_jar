@@ -9,6 +9,7 @@ import { notFound, errorHandler } from './middleware.js';
 import authRoutes from './routes/auth.js';
 import profileRoutes from './routes/profile.js';
 import postRoutes from './routes/posts.js';
+import userRoutes from './routes/users.js';
 
 const MySQLStore = MySQLStoreFactory(session);
 const app = express();
@@ -42,6 +43,7 @@ app.use(
 app.use('/api/auth', authRoutes);
 app.use('/api/profile', profileRoutes);
 app.use('/api/posts', postRoutes);
+app.use('/api/users', userRoutes);
 app.use(notFound);
 app.use(errorHandler);
 

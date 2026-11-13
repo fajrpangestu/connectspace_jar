@@ -7,6 +7,7 @@ import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import Feed from './pages/Feed.jsx';
 import Profile from './pages/Profile.jsx';
+import UserProfile from './pages/UserProfile.jsx';
 
 function Splash() {
   return <div className="grid min-h-screen place-items-center text-ink-soft">Memuat…</div>;
@@ -51,6 +52,7 @@ export default function App() {
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<Feed />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/u/:id" element={<UserProfile />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

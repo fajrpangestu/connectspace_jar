@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import Avatar from './Avatar.jsx';
 import ConfirmDialog from './ConfirmDialog.jsx';
-import { LogoutIcon } from './Icons.jsx';
+import { HomeIcon, LogoutIcon } from './Icons.jsx';
 
 export function Logo({ light = false }) {
   return (
@@ -31,10 +31,24 @@ export default function Navbar() {
     <>
       <header className="sticky top-0 z-20 border-b border-line bg-white/90 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-3xl items-center justify-between px-4">
-          <Link to="/" aria-label="Beranda"><Logo /></Link>
+          <div className="flex items-center gap-2 sm:gap-3">
+            <Link to="/" aria-label="Beranda"><Logo /></Link>
+            <NavLink
+              to="/"
+              end
+              aria-label="Beranda"
+              className={({ isActive }) =>
+                `inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-sm font-semibold transition-colors ${isActive ? 'bg-brand-soft text-brand' : 'text-ink-soft hover:bg-mist hover:text-ink'
+                }`
+              }
+            >
+              <HomeIcon />
+              <span className="hidden sm:inline">Home</span>
+            </NavLink>
+          </div>
           <nav className="flex items-center gap-1">
             <NavLink
-              to="/profile"
+              to={`/u/${user.id}`}
               className={({ isActive }) =>
                 `flex items-center gap-2 rounded-xl py-1.5 pl-1.5 pr-3 text-sm font-semibold hover:bg-mist ${isActive ? 'bg-mist' : ''}`
               }

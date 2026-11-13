@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { api, timeAgo } from '../api.js';
 import { useAuth } from '../context/AuthContext.jsx';
@@ -56,9 +57,13 @@ export default function PostCard({ post, onChange, onDelete }) {
       <article className="card overflow-hidden">
         <div className="p-5">
           <header className="flex items-start gap-3">
-            <Avatar user={post.author} size={44} />
+            <Link to={`/u/${post.author.id}`} aria-label={`Profil ${post.author.name}`}>
+              <Avatar user={post.author} size={44} />
+            </Link>
             <div className="min-w-0 flex-1">
-              <p className="truncate font-bold leading-tight">{post.author.name}</p>
+              <Link to={`/u/${post.author.id}`} className="block truncate font-bold leading-tight hover:text-brand">
+                {post.author.name}
+              </Link>
               <p className="text-xs text-ink-soft">
                 <time dateTime={post.created_at}>{timeAgo(post.created_at)}</time>
                 {post.updated_at && <span> · diedit</span>}
